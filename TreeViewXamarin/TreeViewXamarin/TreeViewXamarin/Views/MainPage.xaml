@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Styling"
+             xmlns:syncfusion="clr-namespace:Syncfusion.XForms.TreeView;assembly=Syncfusion.SfTreeView.XForms"
+       x:Class="Styling.MainPage">
+    <ContentPage.BindingContext>
+        <local:MailFolderViewModel x:Name="viewModel"/>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:TemplateSelector x:Key="Template"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <syncfusion:SfTreeView x:Name="treeView"
+                               ChildPropertyName="SubFolder"
+                               AutoExpandMode="AllNodesExpanded"
+                               ExpanderWidth="0"
+                               ItemsSource="{Binding Folders}"
+                               ItemTemplate="{StaticResource Template}">
+        </syncfusion:SfTreeView>
+    </ContentPage.Content>
+</ContentPage>
